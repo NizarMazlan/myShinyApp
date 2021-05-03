@@ -22,6 +22,9 @@ shinyServer(function(input, output){
              ylab = "Horsepower", bty = "n", pch = 16,
              xlim = c(10, 35), ylim = c(50, 350))
         if(input$showModel1){
+            abline(model1, col = "red", lwd = 2)
+        }
+        if(input$showModel2){
             model2lines <- predict(model2, newdata = data.frame(
                 mpg = 10:35, mpgsp = ifelse(10:35 - 20 > 0, 10:35 - 20, 0)
             ))
